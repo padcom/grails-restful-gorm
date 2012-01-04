@@ -33,10 +33,10 @@ XML and JSON RESTful access to GORM-managed domain classes
     def developers = [ [ name: "Matthias Hryniszak", email: "padcom@gmail.com" ]]
 
     // Location of the plugin's issue tracker.
-    def issueManagement = [ system: "GitHub", url: "https://github.com/aplaline/grails-restful-gorm/issues" ]
+    def issueManagement = [ system: "GitHub", url: "https://github.com/padcom/grails-restful-gorm/issues" ]
 
     // Online location of the plugin's browseable source code.
-    def scm = [ url: "https://github.com/aplaline/grails-restful-gorm" ]
+    def scm = [ url: "https://github.com/padcom/grails-restful-gorm" ]
 
     def doWithWebDescriptor = { xml ->
         // TODO Implement additions to web.xml (optional), this event occurs before
