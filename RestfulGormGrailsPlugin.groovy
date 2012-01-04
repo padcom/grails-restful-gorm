@@ -1,3 +1,6 @@
+import org.grails.plugins.rest.utils.HyphenatedUrlConverter;
+import org.grails.plugins.rest.utils.PassthoughUrlConverter;
+
 class RestfulGormGrailsPlugin {
     // the plugin version
     def version = "0.0.1-SNAPSHOT"
@@ -43,7 +46,11 @@ XML and JSON RESTful access to GORM-managed domain classes
     }
 
     def doWithSpring = {
-        // TODO Implement runtime spring config (optional)
+		if (application.config.grails.web.url.converter == 'hyphenated') {
+			restfulUrlConverter(HyphenatedUrlConverter)
+		} else {
+			restfulUrlConverter(PassthoughUrlConverter)
+		}
     }
 
     def doWithDynamicMethods = { ctx ->
