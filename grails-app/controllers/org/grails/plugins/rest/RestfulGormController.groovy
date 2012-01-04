@@ -3,7 +3,7 @@ package org.grails.plugins.rest
 class RestfulGormController {
 	def grailsApplication
 	def restfulUrlConverter
-	
+
 	def index() {
 		def root = config.root ?: '/api'
 		def path = request.forwardURI - request.contextPath - root
@@ -14,8 +14,8 @@ class RestfulGormController {
 	private parsePath(String path) {
 		"PARSED: ${restfulUrlConverter.convert(path)}"
 	}
-	
+
 	private getConfig() {
-		grailsApplication.config.grails.'restful-gorm' 
+		grailsApplication.config.grails.'restful-gorm'
 	}
 }
