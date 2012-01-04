@@ -1,0 +1,53 @@
+RESTful GORM README file
+------------------------
+
+This is a work in progress. The current aim of this project is to provide the
+following capabilities out of the box:
+
+/api/domain-class 
+  A list of all domain class instances
+/api/domain-class/id
+  A representation of domain class instance with the given id
+/api/domain-class/id/relation
+  A list of instances or instance pointed to by the given relation
+/api/domain-class/id1/relation/id2
+  An instances pointed to by the given relation if it is a list
+?query=field:op:value
+  An option to filter instances by a given criteria (GET only).
+  Initially the same set of operators should be supported that are available
+  in criteria queries
+?max=value
+  An option to return not more than a given numer of results (paging)
+?offset=value
+  An option to skip the given number of results (paging)
+?order=field
+  An option to sort results by a given field
+
+Other than that the following HTTP actions will be supported:
+
+GET /api/domain-class 
+  List of instances 
+POST /api/domain-class/
+  Create a new instance
+PUT /api/domain-class/
+  Replace the whole list
+DELETE /api/domain-class/
+  Delete all instances
+
+GET /api/domain-class/id
+  Given instances 
+POST /api/domain-class/id
+  Denied
+PUT /api/domain-class/id
+  Replace the given instance
+DELETE /api/domain-class/id
+  Delete the given instance instances
+
+And so on with regard to all relations.
+
+The following input/output formats shall be supported:
+
+- XML
+- JSON
+
+Other data exchange formats just don't make sense in this context.
