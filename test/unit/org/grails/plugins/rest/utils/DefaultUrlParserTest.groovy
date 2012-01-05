@@ -1,7 +1,5 @@
 package org.grails.plugins.rest.utils
 
-import grails.test.mixin.*
-
 import org.grails.plugins.rest.url.DefaultUrlParser
 import org.grails.plugins.rest.url.DomainClassElement
 import org.grails.plugins.rest.url.IdentifierElement
