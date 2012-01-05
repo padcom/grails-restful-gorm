@@ -6,4 +6,9 @@ public class IdentifierElement extends Element {
 	public IdentifierElement(Long id) {
 		this.id = id;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("IdentifierElement(id: %s)", id);
+	}
 }
