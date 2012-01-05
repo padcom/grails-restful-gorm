@@ -3,6 +3,7 @@ package org.grails.plugins.rest
 class RestfulGormController {
 	def grailsApplication
 	def restfulUrlConverter
+	def urlParser
 
 	def index() {
 		def root = config.root ?: '/api'
@@ -12,7 +13,7 @@ class RestfulGormController {
 	}
 
 	private parsePath(String path) {
-		"PARSED: ${restfulUrlConverter.convert(path)}"
+		"PARSED: ${urlParser.parse(restfulUrlConverter.convert(path))}"
 	}
 
 	private getConfig() {

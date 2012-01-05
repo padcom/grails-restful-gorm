@@ -1,5 +1,6 @@
 import org.grails.plugins.rest.utils.HyphenatedUrlConverter;
 import org.grails.plugins.rest.utils.PassthoughUrlConverter;
+import org.grails.plugins.rest.url.DefaultUrlParser;
 
 class RestfulGormGrailsPlugin {
     // the plugin version
@@ -51,6 +52,7 @@ XML and JSON RESTful access to GORM-managed domain classes
 		} else {
 			restfulUrlConverter(PassthoughUrlConverter)
 		}
+		urlParser(DefaultUrlParser)
     }
 
     def doWithDynamicMethods = { ctx ->
