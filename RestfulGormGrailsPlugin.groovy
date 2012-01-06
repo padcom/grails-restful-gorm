@@ -1,3 +1,4 @@
+import org.grails.plugins.rest.impl.DefaultDomainClassResolver;
 import org.grails.plugins.rest.utils.HyphenatedUrlConverter;
 import org.grails.plugins.rest.utils.PassthoughUrlConverter;
 import org.grails.plugins.rest.url.DefaultUrlParser;
@@ -53,6 +54,7 @@ XML and JSON RESTful access to GORM-managed domain classes
 			restfulUrlConverter(PassthoughUrlConverter)
 		}
 		urlParser(DefaultUrlParser)
+		domainClassResolver(DefaultDomainClassResolver, application)
     }
 
     def doWithDynamicMethods = { ctx ->
