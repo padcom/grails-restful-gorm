@@ -8,21 +8,29 @@ import org.codehaus.groovy.grails.commons.GrailsClass;
 import org.grails.plugins.rest.DomainClassResolver;
 
 public class DefaultDomainClassResolver implements DomainClassResolver {
+	private GrailsApplication grailsApplication;
 	private GrailsClass[] artefacts;
 
 	public DefaultDomainClassResolver(GrailsApplication grailsApplication) {
-		this.artefacts = grailsApplication.getArtefacts(DomainClassArtefactHandler.TYPE);
+		this.grailsApplication = grailsApplication;
 	}
 
 	@Override
 	public GrailsClass resolve(String name) throws Exception {
-		for (GrailsClass artifact : artefacts) {
+		for (GrailsClass artifact : getArtifacts()) {
 			String exposedName = getExposedName(artifact.getClazz());
 			if (exposedName != null && exposedName.equals(name)) {
 				return artifact;
 			}
 		}
 		return null;
+	}
+
+	private GrailsClass[] getArtifacts() {
+		if (artefacts == null) {
+			artefacts = grailsApplication.getArtefacts(DomainClassArtefactHandler.TYPE);
+		}
+		return artefacts;
 	}
 
 	private String getExposedName(Class<?> domainClass) throws Exception {
