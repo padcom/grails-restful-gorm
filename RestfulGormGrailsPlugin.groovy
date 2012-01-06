@@ -1,7 +1,7 @@
 import org.grails.plugins.rest.impl.DefaultDomainClassResolver;
-import org.grails.plugins.rest.utils.HyphenatedUrlConverter;
-import org.grails.plugins.rest.utils.PassthoughUrlConverter;
-import org.grails.plugins.rest.url.DefaultUrlParser;
+import org.grails.plugins.rest.url.impl.HyphenatedUrlConverter;
+import org.grails.plugins.rest.url.impl.PassthoughUrlConverter;
+import org.grails.plugins.rest.url.impl.DefaultUrlParser;
 
 class RestfulGormGrailsPlugin {
     // the plugin version
