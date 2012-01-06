@@ -53,8 +53,8 @@ XML and JSON RESTful access to GORM-managed domain classes
 		} else {
 			restfulUrlConverter(PassthoughUrlConverter)
 		}
-		urlParser(DefaultUrlParser)
-		domainClassResolver(DefaultDomainClassResolver, application)
+		restfulUrlParser(DefaultUrlParser)
+		restfulDomainClassResolver(DefaultDomainClassResolver, application)
     }
 
     def doWithDynamicMethods = { ctx ->
