@@ -14,6 +14,14 @@ class DefaultUrlParserTest {
 		// then an exception is thrown
 	}
 	
+	@Test(expected = UrlParserException)
+	void 'will throw exception if an entity name is found with invalid characters'() {
+		// when
+		def actual = parser.parse("/a+")
+
+		// then an exception is thrown
+	}
+
 	@Test
 	void 'will parse first-level url'() {
 		// when
@@ -21,8 +29,7 @@ class DefaultUrlParserTest {
 
 		// then
 		assert actual.size() == 1
-		assert actual[0] instanceof DomainClassElement
-		assert actual[0].name == "person"
+		assert actual[0].toString() == 'DomainClassElement(name: person)'
 	}
 
 	@Test
@@ -32,10 +39,8 @@ class DefaultUrlParserTest {
 
 		// then
 		assert actual.size() == 2
-		assert actual[0] instanceof DomainClassElement
-		assert actual[0].name == "person"
-		assert actual[1] instanceof IdentifierElement
-		assert actual[1].id == 1L
+		assert actual[0].toString() == 'DomainClassElement(name: person)'
+		assert actual[1].toString() == 'IdentifierElement(id: 1)'
 	}
 
 	@Test
@@ -45,10 +50,8 @@ class DefaultUrlParserTest {
 
 		// then
 		assert actual.size() == 2
-		assert actual[0] instanceof DomainClassElement
-		assert actual[0].name == "person"
-		assert actual[1] instanceof PropertyElement
-		assert actual[1].name == "firstName"
+		assert actual[0].toString() == 'DomainClassElement(name: person)'
+		assert actual[1].toString() == 'PropertyElement(name: firstName)'
 	}
 
 	@Test
@@ -58,12 +61,9 @@ class DefaultUrlParserTest {
 
 		// then
 		assert actual.size() == 3
-		assert actual[0] instanceof DomainClassElement
-		assert actual[0].name == "person"
-		assert actual[1] instanceof IdentifierElement
-		assert actual[1].id == 1L
-		assert actual[2] instanceof PropertyElement
-		assert actual[2].name == "firstName"
+		assert actual[0].toString() == 'DomainClassElement(name: person)'
+		assert actual[1].toString() == 'IdentifierElement(id: 1)'
+		assert actual[2].toString() == 'PropertyElement(name: firstName)'
 	}
 
 	@Test
@@ -73,11 +73,8 @@ class DefaultUrlParserTest {
 
 		// then
 		assert actual.size() == 3
-		assert actual[0] instanceof DomainClassElement
-		assert actual[0].name == "person"
-		assert actual[1] instanceof PropertyElement
-		assert actual[1].name == "names"
-		assert actual[2] instanceof IdentifierElement
-		assert actual[2].id == 1L
+		assert actual[0].toString() == 'DomainClassElement(name: person)'
+		assert actual[1].toString() == 'PropertyElement(name: names)'
+		assert actual[2].toString() == 'IdentifierElement(id: 1)'
 	}
 }

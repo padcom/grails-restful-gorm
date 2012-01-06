@@ -9,8 +9,7 @@ import org.apache.commons.lang.StringUtils;
 public class DefaultUrlParser implements UrlParser {
 	private enum ParserState {
 		ENTITY,
-		IDENTIFIER,
-		DONE
+		IDENTIFIER
 	}
 	
 	@Override
@@ -20,7 +19,7 @@ public class DefaultUrlParser implements UrlParser {
 		String[] elements = url.split("/");
 		int index = 0;
 		ParserState state = ParserState.ENTITY;
-		while (!(ParserState.DONE.equals(state) || index >= elements.length)) {
+		while (index < elements.length) {
 			if (!StringUtils.isBlank(elements[index])) {
 				switch (state) {
 				case ENTITY:
