@@ -1,10 +1,16 @@
-package org.grails.plugins.rest.url;
+package org.grails.plugins.rest.url.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.CharUtils;
 import org.apache.commons.lang.StringUtils;
+import org.grails.plugins.rest.url.DomainClassElement;
+import org.grails.plugins.rest.url.Element;
+import org.grails.plugins.rest.url.IdentifierElement;
+import org.grails.plugins.rest.url.PropertyElement;
+import org.grails.plugins.rest.url.UrlParser;
+import org.grails.plugins.rest.url.UrlParserException;
 
 public class DefaultUrlParser implements UrlParser {
 	private enum ParserState {

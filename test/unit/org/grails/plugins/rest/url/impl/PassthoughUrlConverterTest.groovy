@@ -1,5 +1,6 @@
-package org.grails.plugins.rest.utils;
+package org.grails.plugins.rest.url.impl;
 
+import org.grails.plugins.rest.url.UrlConverter;
 import org.junit.Test
 
 public class PassthoughUrlConverterTest {

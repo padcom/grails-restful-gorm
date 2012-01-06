@@ -1,4 +1,6 @@
-package org.grails.plugins.rest.utils;
+package org.grails.plugins.rest.url.impl;
+
+import org.grails.plugins.rest.url.UrlConverter;
 
 public class HyphenatedUrlConverter implements UrlConverter {
 	public String convert(String input) {

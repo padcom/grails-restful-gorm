@@ -1,5 +1,7 @@
-package org.grails.plugins.rest.url
+package org.grails.plugins.rest.url.impl
 
+import org.grails.plugins.rest.url.UrlParser;
+import org.grails.plugins.rest.url.UrlParserException;
 import org.junit.Test
 
 class DefaultUrlParserTest {

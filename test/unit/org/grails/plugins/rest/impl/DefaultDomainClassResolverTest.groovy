@@ -1,9 +1,8 @@
-package org.grails.plugins.rest
+package org.grails.plugins.rest.impl
 
 import grails.test.mixin.Mock
 
 import org.grails.plugins.rest.DomainClassResolver;
-import org.grails.plugins.rest.impl.DefaultDomainClassResolver;
 import org.grails.plugins.rest.test.Address
 import org.grails.plugins.rest.test.Person
 import org.junit.Test
