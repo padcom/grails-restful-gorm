@@ -11,18 +11,16 @@ import org.grails.plugins.rest.url.Element;
 public class HqlDataRetriever implements DataRetriever {
 
 	private final DomainClassResolver domainClassResolver;
-	private final HqlQueryBuilder hqlBuilder;
 	
 	public HqlDataRetriever(DomainClassResolver domainClassResolver) {
 		this.domainClassResolver = domainClassResolver;
-		this.hqlBuilder = new HqlQueryBuilder();
 	}
 	
 	@Override
 	public Object retrieve(List<Element> elements) throws Exception {
 		DomainClassElement rootElement = (DomainClassElement) elements.get(0);
 		GrailsClass root = domainClassResolver.resolve(rootElement.name);
-		HqlQuery hql = hqlBuilder.buildFromElements(root, elements);
+		HqlQuery hql = new HqlQueryBuilder().buildFromElements(root, elements);
 		return null;
 	}
 
