@@ -3,8 +3,8 @@ package org.grails.plugins.rest.test
 import grails.persistence.Entity
 
 @Entity
-class Address {
+class City {
 	Long id
-	City city
-	String street
+	String name
+	String country
 }

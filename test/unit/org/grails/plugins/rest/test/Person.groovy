@@ -9,4 +9,4 @@ class Person {
 	
 	static expose = 'person'
 	
-	static hasMany = [ addresses: Address ]}
+	static hasMany = [ address: Address ]}
