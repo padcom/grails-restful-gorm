@@ -26,11 +26,13 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.5'
+		test("javassist:javassist:3.12.0.GA", "com.google.guava:guava:r06")
     }
 
     plugins {
-        build(":tomcat:$grailsVersion", ":release:1.0.0") {
+        build(":tomcat:$grailsVersion"/*, ":hibernate:$grailsVersion"*/, ":release:1.0.0") {
             export = false
         }
+		//build()
     }
 }
