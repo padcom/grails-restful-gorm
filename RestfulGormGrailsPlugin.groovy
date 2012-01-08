@@ -1,7 +1,11 @@
 import org.grails.plugins.rest.impl.DefaultDomainClassResolver;
+import org.grails.plugins.rest.impl.HqlDataRetriever;
 import org.grails.plugins.rest.url.impl.HyphenatedUrlConverter;
 import org.grails.plugins.rest.url.impl.PassthoughUrlConverter;
 import org.grails.plugins.rest.url.impl.DefaultUrlParser;
+import org.grails.plugins.rest.url.impl.HqlDataRetriever;
+
+import org.codehaus.groovy.grails.orm.hibernate.SessionFactoryHolder;
 
 class RestfulGormGrailsPlugin {
     // the plugin version
@@ -55,6 +59,7 @@ XML and JSON RESTful access to GORM-managed domain classes
 		}
 		restfulUrlParser(DefaultUrlParser)
 		restfulDomainClassResolver(DefaultDomainClassResolver, application)
+		restfulDataRetriever(HqlDataRetriever, ref("restfulDomainClassResolver"), ref(SessionFactoryHolder.BEAN_ID))
     }
 
     def doWithDynamicMethods = { ctx ->
