@@ -4,12 +4,11 @@ class RestfulGormController {
 	def grailsApplication
 	def restfulUrlConverter
 	def restfulUrlParser
+	def restfulDataRetriever
 
 	def index() {
 		def root = config.root ?: '/api'
 		def path = request.forwardURI - request.contextPath - root
-
-		
 		
 		render text: parsePath(path), contentType: 'text/plain'
 	}
