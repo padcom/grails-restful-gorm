@@ -22,5 +22,4 @@ public class HqlQuery {
 	public boolean getLastIsCollection() {
 		return lastIsCollection;
 	}
-	
 }

@@ -27,9 +27,10 @@ public class HqlQueryBuilder {
 	private String lastIdentifier;
 	private GrailsDomainClass currentEntity;
 
-	private final Map<Class<?>, ElementProcessor> processors = new HashMap<Class<?>, ElementProcessor>();
+	private final Map<Class<?>, ElementProcessor> processors;
 
 	public HqlQueryBuilder() {
+		processors = new HashMap<Class<?>, ElementProcessor>();
 		processors.put(PropertyElement.class, new PropertyElementProcessor());
 		processors.put(IdentifierElement.class, new IdentifierElementProcessor());
 	}
@@ -59,8 +60,8 @@ public class HqlQueryBuilder {
 		public void process(Element item) {
 			PropertyElement element = (PropertyElement) item;
 			GrailsDomainClassProperty[] properties = currentEntity.getProperties();
-			GrailsDomainClassProperty property = findPropertyForElement(properties, element);
-			if (isDomainClassField(property)) {
+			GrailsDomainClassProperty property = findPropertyByName(properties, element.name);
+			if (isDomainClassProperty(property)) {
 				processDomainClassField(element, property);
 			} else {
 				processPrimitiveField(element);
@@ -69,16 +70,16 @@ public class HqlQueryBuilder {
 			currentEntity = property.getReferencedDomainClass();
 		}
 
-		private GrailsDomainClassProperty findPropertyForElement(GrailsDomainClassProperty[] properties, PropertyElement element) {
+		private GrailsDomainClassProperty findPropertyByName(GrailsDomainClassProperty[] properties, String name) {
 			for (int i = 0; i < properties.length; i++) {
-				if (properties[i].getName().equals(element.name)) {
+				if (properties[i].getName().equals(name)) {
 					return properties[i];
 				}
 			}
 			return null;
 		}
 
-		private boolean isDomainClassField(GrailsDomainClassProperty f) {
+		private boolean isDomainClassProperty(GrailsDomainClassProperty f) {
 			return f.getReferencedDomainClass() != null;
 		}
 
