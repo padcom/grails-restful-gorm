@@ -3,7 +3,7 @@ import org.grails.plugins.rest.impl.HqlDataRetriever;
 import org.grails.plugins.rest.url.impl.HyphenatedUrlConverter;
 import org.grails.plugins.rest.url.impl.PassthoughUrlConverter;
 import org.grails.plugins.rest.url.impl.DefaultUrlParser;
-import org.grails.plugins.rest.url.impl.HqlDataRetriever;
+import org.grails.plugins.rest.impl.HqlDataRetriever;
 
 import org.codehaus.groovy.grails.orm.hibernate.SessionFactoryHolder;
 
